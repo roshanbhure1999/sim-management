@@ -1,14 +1,10 @@
 package com.example.simmanagement.entity;
 
 import com.example.simmanagement.constant.Network;
-import com.example.simmanagement.dto.SimDTO;
 import lombok.Data;
-import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.Date;
 
 @Entity
 @Data
@@ -27,12 +23,9 @@ public class Sim implements Serializable {
     @Column(name = "mobileNumber")
     private String mobileNumber;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     private Customer customer;
-
-
-
 
 
 }

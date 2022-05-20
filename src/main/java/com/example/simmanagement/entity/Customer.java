@@ -4,12 +4,11 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Data
+@Table(uniqueConstraints = @UniqueConstraint(name = "UniqueAadharNumber,EmailAnd", columnNames = {"aadharNumber", "email"}))
 public class Customer implements Serializable {
 
     @Id
@@ -32,12 +31,11 @@ public class Customer implements Serializable {
     @Column(name = "dateOfBirth")
     private LocalDate dateOfBirth;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name = "aadharNumber")
+    @Column(name = "aadharNumber", unique = true)
     private String aadharNumber;
-
 
 
 }

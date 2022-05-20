@@ -5,25 +5,22 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+
 @Data
 public class SimDTO {
-    private Long id;
+    private Long simId;
 
-//    @NotBlank(message = "Sim Number is required")
-//    @Length(min = 10, max = 10, message = "Sim Number should 10 character only")
+    @NotBlank(message = "Sim Number is required")
+    @Length(min = 10, max = 10, message = "Sim Number should 10 character only")
     private String simNumber;
 
-//    @NotBlank(message = "Network  is required")
     private Network network;
 
-//    @NotBlank(message = "mobile number is required")
-//    @Length(min = 10, max = 10, message = "ifscCode should 11 character only")
+    @NotBlank(message = "mobile number is required")
+    @Length(min = 10, max = 10, message = "ifscCode should be of 11 character only")
     private String mobileNumber;
 
-//    @NotBlank(message = "Network  is required")
-    private long CustomerId;
+    private Long customer_Id;
 
 
 }
